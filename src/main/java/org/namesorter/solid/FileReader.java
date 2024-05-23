@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class FileReader {
-    public List<String> readFile(String filename) throws FileNotFoundException {
+public class FileReader implements Reader {
+    @Override
+    public List<String> read(String filename) throws FileNotFoundException {
         List<String> content = new ArrayList<>();
         File myFile = new File(filename);
         Scanner reader = new Scanner(myFile);
@@ -19,3 +20,4 @@ public class FileReader {
         return content;
     }
 }
+
