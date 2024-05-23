@@ -37,8 +37,8 @@ class SortingNamesTest {
     @Test
     public void testSortMultipleNames() {
         SortingNames sorter = new SortingNames();
-        List<String> names = Arrays.asList("Nicholas Peloeahae", "Hannah Farmer", "Themba Mafutya");
-        List<String> expectedSortedList = Arrays.asList("Hannah Farmer", "Themba Mafutya", "Nicholas Peloeahae");
+        List<String> names = Arrays.asList("Nicholas Peloeahae", "Hannah Farmer", "Themba Mafutya", "Mpho Mafutya");
+        List<String> expectedSortedList = Arrays.asList("Hannah Farmer", "Mpho Mafutya", "Themba Mafutya", "Nicholas Peloeahae");
         List<String> sortedList = sorter.sortByLastName(names);
         assertEquals(expectedSortedList, sortedList);
     }

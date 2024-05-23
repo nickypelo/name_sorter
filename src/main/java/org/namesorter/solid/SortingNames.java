@@ -16,8 +16,11 @@ public class SortingNames implements NameSorter {
         // list to capture the sorted names
         List<String> sortedList = new ArrayList<>();
         for (String lastName : lastNames) {
-            sortedList.addAll(lastNameMap.get(lastName));
+            List<String> fullNames = lastNameMap.get(lastName);
+            Collections.sort(fullNames);  // Sort full names within the same last name
+            sortedList.addAll(fullNames);
         }
+
         return sortedList;
     }
 
@@ -49,16 +52,6 @@ public class SortingNames implements NameSorter {
             return parts[parts.length - 1];
         }
         return "";
-    }
-
-    public static void main(String[] args) {
-        SortingNames nicholas = new SortingNames();
-        List<String> names = Arrays.asList("Nicholas Peloeahae", "Hannah Farmer", "Themba Mafutya");
-
-        Map<String, List<String>> listnyana = nicholas.buildLastNameMap(names);
-
-        System.out.println(listnyana);
-
     }
 }
 

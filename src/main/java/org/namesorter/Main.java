@@ -10,6 +10,10 @@ import org.namesorter.solid.SortingNames;
 import java.io.FileNotFoundException;
 import java.util.List;
 
+/** Main class to execute the name sorter program.
+ *  It reads names from a file, sorts them by last name, prints the sorted names to a file,
+ *  and outputs the sorted names to the console.
+ */
 public class Main {
     public static void main(String[] args) {
         if (args.length == 0) {
