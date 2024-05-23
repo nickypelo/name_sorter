@@ -24,7 +24,7 @@ public class Main {
 
         try {
             List<String> content = fileReader.read(filename);
-            List<String> sortedNames = nameSorter.sort(content);
+            List<String> sortedNames = nameSorter.sortByLastName(content);
             filePrinter.print(sortedNames);
 
             for (String name : sortedNames) {

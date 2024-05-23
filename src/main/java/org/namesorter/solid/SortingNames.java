@@ -29,9 +29,11 @@ public class SortingNames implements NameSorter {
         Map<String, List<String>> lastNameMap = new HashMap<>();
         for (String name : names) {
             String lastName = extractLastName(name);
-            List<String> fullNames = lastNameMap.getOrDefault(lastName, new ArrayList<>());
-            fullNames.add(name);
-            lastNameMap.put(lastName, fullNames);
+            if(!lastName.isEmpty()){
+                List<String> fullNames = lastNameMap.getOrDefault(lastName, new ArrayList<>());
+                fullNames.add(name);
+                lastNameMap.put(lastName, fullNames);
+            }
         }
         return lastNameMap;
     }
@@ -42,7 +44,11 @@ public class SortingNames implements NameSorter {
      * */
     private String extractLastName(String fullName) {
         String[] parts = fullName.split(" ");
-        return parts[parts.length - 1];
+        // full name has a max of 4 names: last name and 3 given names
+        if((parts.length <=4) && (parts.length >= 2)){
+            return parts[parts.length - 1];
+        }
+        return "";
     }
 
     public static void main(String[] args) {
