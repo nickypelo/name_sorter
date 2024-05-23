@@ -1,19 +1,19 @@
 package org.namesorter.solid;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class SortingNames implements NameSorter {
-
+    /** sorts the names according to lastname.
+     * @param names - list of the full names.
+     * @return list of sorted names
+     * */
     @Override
-    public List<String> sort(List<String> names) {
+    public List<String> sortByLastName(List<String> names) {
         Map<String, List<String>> lastNameMap = buildLastNameMap(names);
-        List<String> lastNames = new ArrayList<>(lastNameMap.keySet());
+        List<String> lastNames = new ArrayList<>(lastNameMap.keySet()); // list of the keys
         Collections.sort(lastNames);
 
+        // list to capture the sorted names
         List<String> sortedList = new ArrayList<>();
         for (String lastName : lastNames) {
             sortedList.addAll(lastNameMap.get(lastName));
@@ -21,6 +21,10 @@ public class SortingNames implements NameSorter {
         return sortedList;
     }
 
+    /** Creates a map.
+     * @param names - list of the full names.
+     * @return map - keys are lastnames and values are the fullnames.
+     * */
     private Map<String, List<String>> buildLastNameMap(List<String> names) {
         Map<String, List<String>> lastNameMap = new HashMap<>();
         for (String name : names) {
@@ -32,9 +36,23 @@ public class SortingNames implements NameSorter {
         return lastNameMap;
     }
 
+    /** Extracts lastname from a string.
+     * @param fullName (firstnames and lastname).
+     * @return lastname string
+     * */
     private String extractLastName(String fullName) {
         String[] parts = fullName.split(" ");
         return parts[parts.length - 1];
+    }
+
+    public static void main(String[] args) {
+        SortingNames nicholas = new SortingNames();
+        List<String> names = Arrays.asList("Nicholas Peloeahae", "Hannah Farmer", "Themba Mafutya");
+
+        Map<String, List<String>> listnyana = nicholas.buildLastNameMap(names);
+
+        System.out.println(listnyana);
+
     }
 }
 
