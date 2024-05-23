@@ -8,11 +8,14 @@ This application reads a list of names from a specified text file, sorts them by
 
 ## Installation
 - in Linux, open the terminal/command line
+- In Windows, open PowerShell
 ```bash
 # navigate to desired directory then use the following command
 git clone https://github.com/nickypelo/name_sorter
 cd name_sorter
-ls
+
+ls # for linux
+dir # for powershell
 
 # your output will be something like this 
 filename.txt  MANIFEST.MF  name-sorter.jar  pom.xml  README.md  src  target
