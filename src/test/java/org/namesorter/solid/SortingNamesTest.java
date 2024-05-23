@@ -11,14 +11,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SortingNamesTest {
     @Test
-    void testSort() {
-        NameSorter sorter = new SortingNames();
-        List<String> names = Arrays.asList("Nicholas Peloeahae", "Hannah Farmer", "Themba Mafutya");
-        List<String> sortedNames = sorter.sortByLastName(names);
-        assertEquals(Arrays.asList("Hannah Farmer", "Themba Mafutya", "Nicholas Peloeahae"), sortedNames);
-    }
-
-    @Test
     public void testSortEmptyList() {
         SortingNames sorter = new SortingNames();
         List<String> emptyList = new ArrayList<>();
@@ -37,8 +29,8 @@ class SortingNamesTest {
     @Test
     public void testSortMultipleNames() {
         SortingNames sorter = new SortingNames();
-        List<String> names = Arrays.asList("Nicholas Peloeahae", "Hannah Farmer", "Themba Mafutya", "Mpho Mafutya");
-        List<String> expectedSortedList = Arrays.asList("Hannah Farmer", "Mpho Mafutya", "Themba Mafutya", "Nicholas Peloeahae");
+        List<String> names = Arrays.asList("Nicholas Peloeahae", "Hannah Farmer", "Themba Mafutya");
+        List<String> expectedSortedList = Arrays.asList("Hannah Farmer", "Themba Mafutya", "Nicholas Peloeahae");
         List<String> sortedList = sorter.sortByLastName(names);
         assertEquals(expectedSortedList, sortedList);
     }
@@ -46,8 +38,8 @@ class SortingNamesTest {
     @Test
     public void testSortDuplicateLastNames() {
         SortingNames sorter = new SortingNames();
-        List<String> names = Arrays.asList("Alice Smith", "Bob Smith", "John Smith", "Jane Doe");
-        List<String> expectedSortedList = Arrays.asList("Jane Doe","Alice Smith", "Bob Smith", "John Smith");
+        List<String> names = Arrays.asList("Nicholas Peloeahae", "Hannah Farmer", "Themba Mafutya", "Mpho Mafutya");
+        List<String> expectedSortedList = Arrays.asList("Hannah Farmer", "Mpho Mafutya", "Themba Mafutya", "Nicholas Peloeahae");
         List<String> sortedList = sorter.sortByLastName(names);
         assertEquals(expectedSortedList, sortedList);
     }

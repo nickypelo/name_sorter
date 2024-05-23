@@ -17,6 +17,7 @@ class FilePrinterTest {
         List<String> names = Arrays.asList("John Doe", "Jane Smith", "Alice Johnson");
         printer.print(names);
 
+        // read the "sorted-names-list.txt" file
         File file = new File("sorted-names-list.txt");
         assertTrue(file.exists());
         List<String> content = Files.readAllLines(file.toPath());
